@@ -5,29 +5,58 @@
 //------------------------------
 class Quaternion
 {
-  public: 
-  double a, b, c, d;
-  Quaternion 
-  (double i, double j, double k, double l)
-  {
-    a = i;
-    b = j;
-    c = k;
-    d = l;
-  }
-bool operator == (const Quaternion i)
-{
-  if ((i->a==this->a) && (i->b==this->b) && (i->c==this->c) &&(i->d==this->d))
-  return true;
-  return false;
-}
-Quaternion operator+(const Quaternion i);
-{
+  private:
+	double a, b, c, d;
+public:
+	Quaternion(double a, double b, double c, double d)
+	{
+		this->a = a;
+		this->b = b;
+		this->c = c;
+		this->d = d;
+	}
 
-}
+	bool operator==(const Quaternion obj) const
+	{
+		if ((obj.a == a) && (obj.b == b) && (obj.c == c) && (obj.d == d))
+			return true;
+		else
+			return false;
+	}
 
-}
+	Quaternion operator+(const Quaternion obj)
+	{
+		Quaternion temp(0.0,0.0,0.0,0.0);
+		temp.a = obj.a + a;
+		temp.b = obj.b + b;
+		temp.c = obj.c + c;
+		temp.d = obj.d + d;
 
+		return temp;
+	}
+
+	Quaternion operator-(const Quaternion obj)
+	{
+		Quaternion temp(0.0, 0.0, 0.0, 0.0);
+		temp.a = obj.a - a;
+		temp.b = obj.b - b;
+		temp.c = obj.c - c;
+		temp.d = obj.d - d;
+
+		return temp;
+	}
+
+	Quaternion operator*(double scaler)
+	{
+		Quaternion newObject(0.0, 0.0, 0.0, 0.0);
+		newObject.a = scaler * this->a;
+		newObject.b = scaler * this->b;
+		newObject.c = scaler * this->c;
+		newObject.d = scaler * this->d;
+
+		return newObject;
+	}
+};
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
