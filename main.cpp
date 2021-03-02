@@ -3,11 +3,31 @@
 //------------------------------
 #include "catch.hpp"
 //------------------------------
+class Quaternion
+{
+  public: 
+  double a, b, c, d;
+  Quaternion 
+  (double i, double j, double k, double l)
+  {
+    a = i;
+    b = j;
+    c = k;
+    d = l;
+  }
+bool operator == (const Quaternion i)
+{
+  if ((i->a==this->a) && (i->b==this->b) && (i->c==this->c) &&(i->d==this->d))
+  return true;
+  return false;
+}
+Quaternion operator+(const Quaternion i);
+{
 
-// Put the assignment code here
+}
 
-class Quaternion {
-};
+}
+
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
@@ -37,3 +57,4 @@ TEST_CASE( "Assignment" ) {
     }
 }
 //------------------------------
+
